@@ -9,7 +9,7 @@
 
 ### Запуск приложения:
 ``` git clone git@github.com:igorentiy/infra_sp2.git  ``` \
-```docker-compose up```
+``` docker-compose up -d --build ```
 
 ### Выполнить миграции:
 ```docker-compose exec web python manage.py migrate```
@@ -21,7 +21,7 @@
 ```docker-compose exec web python manage.py collectstatic --no-input```
 
 ### Заполнить базу начальными данными:
-```docker-compose exec web python manage.py loaddata db.json```
+```docker-compose exec restapi python manage.py loaddata ./fixtures.json```
 
 ### Алгоритм регистрации пользователей
 1. Пользователь отправляет POST-запрос на добавление нового пользователя с параметрами `email` и `username` на эндпоинт `/api/v1/auth/signup/`.
